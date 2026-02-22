@@ -2,7 +2,7 @@
   <header
     ref="navEl"
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-    :class="scrolled ? 'py-3 glass-strong border-b border-white/5 shadow-lg shadow-black/10' : 'py-6'"
+    :class="scrolled ? 'py-3 glass-strong border-b border-white/5 shadow-lg shadow-black/20' : 'py-6'"
   >
     <nav class="max-w-6xl mx-auto px-6 flex items-center justify-between">
       <!-- Logo -->
@@ -17,13 +17,17 @@
         href="https://linkedin.com/in/yemrecc"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-sky-500/30 text-sky-400 hover:bg-sky-500/10 hover:border-sky-400/60 hover:shadow-lg hover:shadow-sky-500/10 transition-all duration-300"
+        class="group relative flex items-center gap-2.5 px-6 py-2.5 rounded-full text-sm font-semibold border border-sky-500/20 bg-sky-500/5 text-sky-400 hover:bg-sky-500/10 hover:border-sky-400/50 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all duration-300 overflow-hidden"
       >
-        <span class="relative w-2 h-2">
-          <span class="absolute inset-0 rounded-full bg-sky-400 animate-ping opacity-60" />
-          <span class="relative block w-2 h-2 rounded-full bg-sky-400" />
+        <!-- Custom breathing dot instead of generic ping -->
+        <span class="relative flex h-2 w-2 items-center justify-center">
+          <span class="animate-glow-pulse absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400"></span>
         </span>
-        Let's Talk
+        <span class="relative z-10 group-hover:text-glow transition-all text-shadow-sm">İletişime Geç</span>
+        
+        <!-- Subtle inner highlight -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
     </nav>
   </header>

@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden relative" :class="maskClass">
     <div
-      class="flex gap-8 w-max"
+      class="flex gap-8 w-max hover:[animation-play-state:paused]"
       :class="reverse ? 'animate-marquee-reverse' : 'animate-marquee'"
     >
       <!-- Duplicate content for seamless loop -->

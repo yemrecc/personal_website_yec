@@ -3,8 +3,8 @@
     id="hero"
     class="relative min-h-screen flex flex-col justify-between pt-24 pb-8 px-6 overflow-hidden"
   >
-    <!-- Hero glow accent behind content -->
-    <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-[0.04] blur-3xl pointer-events-none"
+    <!-- Smoother, deep hero glow accent behind content -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.06] blur-[100px] pointer-events-none transition-opacity duration-1000"
       style="background: radial-gradient(circle, #38bdf8, transparent 70%)"
     />
 
@@ -14,46 +14,46 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center flex-1">
 
         <!-- LEFT: Identity -->
-        <div ref="leftCol" class="space-y-7">
-          <!-- Status badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-strong text-xs font-medium text-emerald-400 border border-emerald-500/20 shadow-lg shadow-emerald-500/5">
-            <span class="relative w-2 h-2">
-              <span class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
-              <span class="relative block w-2 h-2 rounded-full bg-emerald-400" />
+        <div ref="leftCol" class="space-y-7 relative z-10">
+          <!-- Premium Status badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/5 text-xs font-semibold text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.05)] backdrop-blur-md">
+            <span class="relative flex h-2 w-2 items-center justify-center">
+              <span class="animate-glow-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400 shadow-[0_0_5px_#34d399]"></span>
             </span>
-            Open to opportunities · Konya, TR
+            <span class="tracking-wide">Yeni fırsatlara açık · Konya, TR</span>
           </div>
 
           <!-- Name -->
           <div>
-            <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-none mb-4">
+            <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-none mb-4 drop-shadow-2xl">
               <span class="block text-white text-glow">Yunus Emre</span>
-              <span class="block text-gradient">Coşkun</span>
+              <span class="block text-gradient pb-4 -mb-4">Coşkun</span>
             </h1>
             <p class="font-display text-lg lg:text-xl text-zinc-400 font-medium tracking-wide">
-              Computer Engineer
+              Bilgisayar Mühendisi
               <span class="text-zinc-700 mx-2">|</span>
-              <span class="text-sky-400">Web3</span> &amp; <span class="text-purple-400">AI</span> Builder
+              <span class="text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Web3</span> &amp; <span class="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]">AI</span> Geliştiricisi
             </p>
           </div>
 
-          <!-- Shimmer divider -->
-          <div class="w-24 h-px shimmer-line rounded-full" />
+          <!-- Sharper divider -->
+          <div class="w-24 h-px shimmer-line rounded-full opacity-70" />
 
-          <!-- CTA buttons -->
+          <!-- Premium CTA buttons -->
           <div class="flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              class="group relative px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-sky-500 to-sky-400 text-black transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-sky-500/25 overflow-hidden"
+              class="group relative px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-sky-500 to-sky-400 text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] overflow-hidden"
             >
-              <span class="relative z-10">View Projects</span>
-              <div class="absolute inset-0 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span class="relative z-10 drop-shadow-sm">Projeleri İncele</span>
+              <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
             <a
               href="mailto:email@adresin.com"
-              class="px-7 py-3.5 rounded-xl font-semibold text-sm glass-strong hover:bg-white/10 border border-white/10 hover:border-white/25 transition-all duration-300 text-zinc-300 hover:text-white"
+              class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-zinc-900/50 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-zinc-300 hover:text-white backdrop-blur-sm"
             >
-              Get In Touch
+              İletişime Geç
             </a>
           </div>
 

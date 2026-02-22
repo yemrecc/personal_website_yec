@@ -6,14 +6,14 @@
   >
     <!-- Spotlight effect -->
     <div
-      class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
       :style="spotlightStyle"
     />
 
-    <!-- Top gradient glow -->
+    <!-- Top gradient glow (smoother) -->
     <div
-      class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-60 transition-opacity duration-500 rounded-2xl"
-      :style="`background: radial-gradient(circle at ${mouseX}% ${mouseY}%, ${accentColor}18 0%, transparent 50%)`"
+      class="absolute inset-x-0 top-0 h-32 pointer-events-none opacity-0 group-hover:opacity-[0.15] transition-opacity duration-700 blur-xl"
+      :style="`background: linear-gradient(to bottom, ${accentColor}, transparent)`"
     />
 
     <!-- Content -->
