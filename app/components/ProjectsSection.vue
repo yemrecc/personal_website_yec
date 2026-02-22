@@ -1,8 +1,8 @@
 <template>
   <section id="projects" class="py-32 px-6 relative">
     <!-- Sophisticated section glow -->
-    <div class="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.05] blur-[120px] pointer-events-none"
-      style="background: radial-gradient(circle, #a855f7, transparent 70%)"
+    <div class="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.03] blur-[120px] pointer-events-none"
+      style="background: radial-gradient(circle, #38bdf8, transparent 70%)"
     />
 
     <div class="max-w-6xl mx-auto relative z-10">

@@ -17,8 +17,7 @@
     <!-- Bottom Right Purple -->
     <div class="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-purple-500/10 blur-[150px] mix-blend-screen animate-aurora-2" />
     
-    <!-- Center Pink -->
-    <div class="absolute top-[20%] left-[20%] w-[50%] h-[50%] rounded-full bg-pink-500/10 blur-[130px] mix-blend-screen animate-aurora-3" />
+    <!-- Center Pink (Removed because it caused purple hue in the middle) -->
 
     <!-- 3. Floating Particles (Stars) -->
     <div class="absolute inset-0 overflow-hidden">
