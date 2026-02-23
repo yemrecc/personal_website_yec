@@ -13,7 +13,7 @@
           <p class="font-display text-lg font-bold text-white mb-1">
             Yunus Emre <span class="text-gradient">Coşkun</span>
           </p>
-          <p class="text-zinc-600 text-sm">Bilgisayar Mühendisi · Web3 & AI Geliştiricisi</p>
+          <p class="text-zinc-600 text-sm">Computer Engineer · Web3 & AI Builder</p>
         </div>
 
         <!-- Center: Status -->
@@ -22,7 +22,7 @@
             <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-60" />
             <span class="relative block w-2 h-2 rounded-full bg-emerald-500" />
           </span>
-          İşbirliğine açık · {{ currentYear }}
+          Available for collaboration · {{ currentYear }}
         </div>
 
         <!-- Right: Social links -->
@@ -45,7 +45,7 @@
       <!-- Bottom line -->
       <div class="mt-10 pt-6 border-t border-white/5 text-center">
         <p class="text-zinc-700 text-xs">
-          Özenle tasarlandı ve geliştirildi
+          Designed & built with intention
         </p>
       </div>
     </div>

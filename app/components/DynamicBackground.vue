@@ -39,7 +39,7 @@ let ctx: CanvasRenderingContext2D | null = null
 let animationFrameId: number
 
 // Particle Config
-const NUM_STARS = 120
+const NUM_STARS = 200
 const REPULSE_RADIUS = 120 // How close mouse needs to be to scatter
 const REPULSE_FORCE = 3   // How fast they scatter
 

@@ -6,7 +6,7 @@
   >
     <nav class="max-w-6xl mx-auto px-6 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#hero" class="font-display font-bold text-xl tracking-tight group">
+      <a href="/" class="font-display font-bold text-xl tracking-tight group">
         <span class="text-white group-hover:text-glow transition-all duration-300">YE</span>
         <span class="text-gradient">C</span>
         <span class="text-zinc-600 group-hover:text-zinc-400 transition-colors">.</span>
@@ -24,7 +24,7 @@
           <span class="animate-glow-pulse absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400"></span>
         </span>
-        <span class="relative z-10 group-hover:text-glow transition-all text-shadow-sm">İletişime Geç</span>
+        <span class="relative z-10 group-hover:text-glow transition-all text-shadow-sm">Let's Talk</span>
         
         <!-- Subtle inner highlight -->
         <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

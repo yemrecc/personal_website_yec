@@ -10,10 +10,10 @@
       <!-- Section label -->
       <div class="flex items-center gap-3 mb-4">
         <span class="w-12 h-px shimmer-line rounded-full" />
-        <span class="text-purple-400 text-xs font-mono font-bold tracking-[0.2em] uppercase">Seçili İşler</span>
+        <span class="text-purple-400 text-xs font-mono font-bold tracking-[0.2em] uppercase">Masterpiece</span>
       </div>
       <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-16 leading-tight drop-shadow-xl">
-        Proje <span class="text-gradient drop-shadow-[0_0_12px_rgba(168,85,247,0.3)]">Vitrinim</span>
+        Project <span class="text-gradient drop-shadow-[0_0_12px_rgba(168,85,247,0.3)]">Vitrine</span>
       </h2>
 
       <!-- Bento Grid -->
@@ -23,23 +23,23 @@
         <BentoCard
           class="md:col-span-2"
           title="Dreamscape"
-          tag="Öne Çıkan · AI Uygulaması"
-          description="Uykudan uyandığınız an rüyalarınızın gizemini aydınlatan ve bilinçaltınızın haritasını çıkaran vizyoner bir mobil günlüktür. Uygulama, sadece rüyalarınızı kaydetmekle kalmaz; onları derinlemesine analiz ederek anlamlandırır ve yapay zeka ile sanat eserlerine dönüştürür. Dijital mistisizm temasıyla tasarlanan bu güvenli platform, rüyalarınızı birer kişisel içgörü yolculuğuna dönüştürerek her sabah kendinizi yeniden keşfetmenizi sağlar."
+          tag="Featured · AI Application"
+          description="A visionary mobile journal that maps your subconscious and illuminates the mysteries of your dreams the moment you wake up. This application doesn't just record your dreams; it deeply analyzes them to extract meaning and transforms them into artworks using artificial intelligence. Designed with a digital mysticism theme, this secure platform turns your dreams into a personal journey of insight, allowing you to rediscover yourself every morning."
           icon='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3c-4.97 0-9 3.582-9 8 0 2.56 1.28 4.836 3.3 6.34L6 21l4.36-1.745A10.02 10.02 0 0012 19c4.97 0 9-3.582 9-8s-4.03-8-9-8z"/></svg>'
           size="large"
           accent-color="#a855f7"
-          link="Yakında"
+          link="Coming Soon"
         >
           <!-- Premium, sharp architectural chart mockup -->
           <div class="mt-6 flex-1 rounded-xl bg-zinc-950/80 border border-white/10 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-hidden relative group/chart flex flex-col">
             <!-- Header -->
             <div class="flex items-center justify-between px-5 py-3 border-b border-white/5 bg-white/[0.02]">
               <div class="flex items-center gap-3">
-                <span class="text-[10px] text-zinc-400 font-mono tracking-wider uppercase border border-white/10 px-2 py-0.5 rounded">Analiz Motoru</span>
+                <span class="text-[10px] text-zinc-400 font-mono tracking-wider uppercase border border-white/10 px-2 py-0.5 rounded">Analysis Engine</span>
               </div>
               <div class="flex items-center gap-2">
                 <div class="h-1.5 w-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]" />
-                <span class="text-[10px] font-mono text-purple-400">İşleniyor v2.4</span>
+                <span class="text-[10px] font-mono text-purple-400">Processing v2.4</span>
               </div>
             </div>
             
@@ -73,11 +73,11 @@
         <BentoCard
           title="Algo Trading"
           tag="Python · FreqAI"
-          description="FreqAI'nin Makine Öğrenimi destekli stratejilerini kullanan otomatik alım satım sistemleri. Adaptif pazar davranışları için pekiştirmeli öğrenmeyi (RL) teknik indikatörlerle birleştirir."
+          description="Automated trading systems driven by Machine Learning strategies using FreqAI. Combines reinforcement learning (RL) with technical indicators for adaptive market behavior."
           icon='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>'
           size="medium"
           accent-color="#4ade80"
-          link="Keşfet"
+          link="Explore"
         >
           <!-- Crisp Order Book / Terminal -->
           <div class="mt-6 flex-1 rounded-xl bg-[#09090b] border border-white/10 p-1 flex flex-col font-mono text-[10px] shadow-inner relative overflow-hidden group/term">
@@ -103,12 +103,12 @@
         <!-- Sepya Network -->
         <BentoCard
           title="Sepya Network"
-          tag="Topluluk · Web3"
-          description="Türkiye'deki geliştirici ekosisteminde Web3 eğitimini ve ekosistem adaptasyonunu merkeze alan, merkeziyetsiz bir topluluk platformu kurucu ortaklığı."
+          tag="Community · Web3"
+          description="Co-founder of a decentralized community platform focused on Web3 education and ecosystem adoption within the Turkish developer ecosystem."
           icon='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>'
           size="medium"
           accent-color="#f472b6"
-          link="Daha Fazla Bilgi"
+          link="Learn More"
         >
           <!-- Sharp Isometric / Geometric Node Representation -->
           <div class="mt-6 flex-1 rounded-xl bg-zinc-950/50 border border-white/5 relative overflow-hidden group/net flex items-center justify-center p-4">

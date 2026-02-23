@@ -21,7 +21,7 @@
               <span class="animate-glow-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80"></span>
               <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400 shadow-[0_0_5px_#34d399]"></span>
             </span>
-            <span class="tracking-wide">Yeni fırsatlara açık · Konya, TR</span>
+            <span class="tracking-wide">Open to opportunities · Konya, TR</span>
           </div>
 
           <!-- Name -->
@@ -31,9 +31,9 @@
               <span class="block text-gradient pb-4 -mb-4">Coşkun</span>
             </h1>
             <p class="font-display text-lg lg:text-xl text-zinc-400 font-medium tracking-wide">
-              Bilgisayar Mühendisi
+              Computer Engineer
               <span class="text-zinc-700 mx-2">|</span>
-              <span class="text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Web3</span> &amp; <span class="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]">AI</span> Geliştiricisi
+              <span class="text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Web3</span> &amp; <span class="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]">AI</span> Builder
             </p>
           </div>
 
@@ -46,7 +46,7 @@
               href="#projects"
               class="group relative px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-sky-500 to-sky-400 text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] overflow-hidden"
             >
-              <span class="relative z-10 drop-shadow-sm">Projeleri İncele</span>
+              <span class="relative z-10 drop-shadow-sm">View Projects</span>
               <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
             <a
@@ -55,7 +55,7 @@
               rel="noopener noreferrer"
               class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-zinc-900/50 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-zinc-300 hover:text-white backdrop-blur-sm"
             >
-              İletişime Geç
+              Get In Touch
             </a>
           </div>
 
@@ -128,8 +128,8 @@ const bottomRow = ref<HTMLElement | null>(null)
 
 const education = [
   {
-    school: 'Konya Teknik Üniversitesi',
-    degree: 'Bilgisayar Mühendisliği',
+    school: 'Konya Technical University',
+    degree: 'Computer Engineering',
     years: '2021 – 2026',
     logo: '/ktun_logo.png',
     logoSize: 'w-18 h-18',
@@ -137,8 +137,8 @@ const education = [
     color: '#38bdf8',
   },
   {
-    school: 'Tosya Fen Lisesi',
-    degree: 'Fen Bilimleri',
+    school: 'Tosya Science High School',
+    degree: 'Science Studies',
     years: '2016 – 2020',
     logo: '/tosyafenlisesilogo.jpg',
     icon: '',
