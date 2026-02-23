@@ -14,31 +14,51 @@
     <!-- Top Left Blue -->
     <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-sky-500/10 blur-[120px] mix-blend-screen animate-aurora-1" />
     
-    <!-- Bottom Right Purple -->
-    <div class="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-purple-500/10 blur-[150px] mix-blend-screen animate-aurora-2" />
+    <!-- Bottom Right Deep Blue (was Purple) -->
+    <div class="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-indigo-500/5 blur-[150px] mix-blend-screen animate-aurora-2" />
     
     <!-- Center Pink (Removed because it caused purple hue in the middle) -->
 
-    <!-- 3. Floating Particles (Stars) -->
+    <!-- 3. Floating Particles (Ambient Stars) -->
     <div class="absolute inset-0 overflow-hidden">
-      <div v-for="i in 30" :key="i" class="star" :style="getStarStyle(i)" />
+      <div v-for="i in 80" :key="`star-${i}`" class="star" :style="getStarStyle(i)" />
+    </div>
+
+    <!-- 4. Shooting Stars -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div v-for="i in 12" :key="`shooting-${i}`" class="shooting-star" :style="getShootingStarStyle(i)" />
     </div>
 
   </div>
 </template>
 
 <script setup lang="ts">
-// Generate random styles for particles to avoid messy CSS loops
+// Generate random styles for ambient particles
 const getStarStyle = (i: number) => {
   const size = Math.random() * 2 + 1; // 1px to 3px
   const top = Math.random() * 100;
   const left = Math.random() * 100;
-  const duration = Math.random() * 10 + 10; // 10s to 20s
-  const delay = Math.random() * -20; // randomize start time
+  const duration = Math.random() * 15 + 15; // 15s to 30s
+  const delay = Math.random() * -30; // randomize start time
 
   return {
     width: `${size}px`,
     height: `${size}px`,
+    top: `${top}%`,
+    left: `${left}%`,
+    animationDuration: `${duration}s`,
+    animationDelay: `${delay}s`,
+  };
+}
+
+// Generate random styles for shooting stars
+const getShootingStarStyle = (i: number) => {
+  const top = Math.random() * 50; // spawn in top half
+  const left = Math.random() * 100;
+  const duration = Math.random() * 5 + 5; // 5s to 10s repeat loop
+  const delay = Math.random() * 15; // Random start offsets
+
+  return {
     top: `${top}%`,
     left: `${left}%`,
     animationDuration: `${duration}s`,
@@ -103,15 +123,35 @@ const getStarStyle = (i: number) => {
   position: absolute;
   background-color: white;
   border-radius: 50%;
-  box-shadow: 0 0 10px 2px rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px 2px rgba(255,255,255,0.3);
   opacity: 0;
   animation: float-star linear infinite;
 }
 
 @keyframes float-star {
   0% { transform: translateY(0) scale(0); opacity: 0; }
-  10% { transform: translateY(-10vh) scale(1); opacity: 0.8; }
-  90% { transform: translateY(-90vh) scale(1); opacity: 0.8; }
-  100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+  10% { transform: translateY(-5vh) scale(1); opacity: 0.8; }
+  90% { transform: translateY(-35vh) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-40vh) scale(0); opacity: 0; }
+}
+
+/* Shooting Stars */
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent border-box);
+  border-radius: 50%;
+  opacity: 0;
+  transform: rotate(-135deg); /* Moves top-right to bottom-left */
+  animation: shooting-star linear infinite;
+  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+@keyframes shooting-star {
+  0% { transform: translate(0, 0) rotate(-45deg); opacity: 0; }
+  2% { opacity: 1; height: 3px; }
+  10% { transform: translate(-40vw, 40vh) rotate(-45deg); opacity: 0; height: 1px; width: 0px; }
+  100% { transform: translate(-40vw, 40vh) rotate(-45deg); opacity: 0; }
 }
 </style>

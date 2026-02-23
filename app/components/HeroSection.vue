@@ -83,28 +83,28 @@
       <!-- BOTTOM ROW: Education & Tech Stack -->
       <div ref="bottomRow" class="mt-8 lg:mt-6 space-y-5">
         <!-- Education cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
           <div
             v-for="edu in education"
             :key="edu.school"
-            class="border-gradient glass-strong rounded-xl px-5 py-4 border border-white/8 hover:border-white/15 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/5 flex items-center gap-4"
+            class="border-gradient glass-strong rounded-lg px-3 py-2.5 border border-white/8 hover:border-white/15 transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/5 flex items-center gap-2.5"
           >
             <div
-              class="rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden"
-              :class="edu.logoSize || 'w-10 h-10'"
+              class="rounded-md flex items-center justify-center flex-shrink-0 overflow-hidden"
+              :class="edu.logoSize || 'w-9 h-9'"
               :style="edu.logo ? '' : `background: ${edu.color}15; border: 1px solid ${edu.color}25`"
             >
               <img v-if="edu.logo" :src="edu.logo" :alt="edu.school" class="w-full h-full object-contain" />
-              <span v-else class="text-base">{{ edu.icon }}</span>
+              <span v-else class="text-xs">{{ edu.icon }}</span>
             </div>
             <div class="min-w-0 flex-1">
               <div class="flex items-center justify-between gap-2">
-                <h4 class="font-display font-semibold text-white text-sm truncate group-hover:text-glow transition-all">{{ edu.school }}</h4>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md flex-shrink-0" :style="`color: ${edu.color}; background: ${edu.color}15; border: 1px solid ${edu.color}20`">
+                <h4 class="font-display font-semibold text-white text-xs truncate group-hover:text-glow transition-all">{{ edu.school }}</h4>
+                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded flex-shrink-0" :style="`color: ${edu.color}; background: ${edu.color}15; border: 1px solid ${edu.color}20`">
                   {{ edu.years }}
                 </span>
               </div>
-              <p class="text-zinc-500 text-xs mt-1">{{ edu.degree }}</p>
+              <p class="text-zinc-500 text-[10px] mt-0.5">{{ edu.degree }}</p>
             </div>
           </div>
         </div>
@@ -153,10 +153,10 @@ const techStack = [
 
 const contacts = [
   {
-    label: 'Email',
-    href: 'mailto:email@adresin.com',
-    display: 'email@adresin.com',
-    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    label: 'X (Twitter)',
+    href: 'https://x.com/yemrecc',
+    display: '@yemrecc',
+    icon: `<svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
   },
   {
     label: 'LinkedIn',
