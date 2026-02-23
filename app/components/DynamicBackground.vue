@@ -17,12 +17,10 @@
     <!-- Bottom Right Deep Blue (was Purple) -->
     <div class="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-indigo-500/5 blur-[150px] mix-blend-screen animate-aurora-2" />
     
-    <!-- Center Pink (Removed because it caused purple hue in the middle) -->
-
-    <!-- 3. Floating Particles (Ambient Stars) -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div v-for="i in 80" :key="`star-${i}`" class="star" :style="getStarStyle(i)" />
-    </div>
+    <!-- 3. Interactive Floating Particles (Ambient Stars via Canvas) -->
+    <!-- We remove pointer-events-none locally here OR handle window mouse events -->
+    <!-- The parent div has pointer-events-none, so we must track window.onmousemove instead of canvas events -->
+    <canvas ref="starsCanvas" class="absolute inset-0 w-full h-full opacity-80" />
 
     <!-- 4. Shooting Stars -->
     <div class="absolute inset-0 overflow-hidden">
@@ -33,23 +31,131 @@
 </template>
 
 <script setup lang="ts">
-// Generate random styles for ambient particles
-const getStarStyle = (i: number) => {
-  const size = Math.random() * 2 + 1; // 1px to 3px
-  const top = Math.random() * 100;
-  const left = Math.random() * 100;
-  const duration = Math.random() * 15 + 15; // 15s to 30s
-  const delay = Math.random() * -30; // randomize start time
+import { ref, onMounted, onUnmounted } from 'vue'
 
-  return {
-    width: `${size}px`,
-    height: `${size}px`,
-    top: `${top}%`,
-    left: `${left}%`,
-    animationDuration: `${duration}s`,
-    animationDelay: `${delay}s`,
-  };
+// --- Canvas Interactive Stars Setup ---
+const starsCanvas = ref<HTMLCanvasElement | null>(null)
+let ctx: CanvasRenderingContext2D | null = null
+let animationFrameId: number
+
+// Particle Config
+const NUM_STARS = 120
+const REPULSE_RADIUS = 120 // How close mouse needs to be to scatter
+const REPULSE_FORCE = 3   // How fast they scatter
+
+interface Star {
+  x: number
+  y: number
+  size: number
+  speedY: number
+  baseSpeedY: number
+  vx: number
+  vy: number
+  opacity: number
 }
+
+const stars: Star[] = []
+let mouse = { x: -1000, y: -1000 }
+
+// Window resize handler
+const resizeCanvas = () => {
+  if (!starsCanvas.value) return
+  starsCanvas.value.width = window.innerWidth
+  starsCanvas.value.height = window.innerHeight
+}
+
+// Mouse movement tracker (since container is pointer-events-none, we listen on window)
+const handleMouseMove = (e: MouseEvent) => {
+  mouse.x = e.clientX
+  mouse.y = e.clientY
+}
+
+const handleMouseLeave = () => {
+  mouse.x = -1000
+  mouse.y = -1000
+}
+
+const initStars = () => {
+  stars.length = 0
+  if (!starsCanvas.value) return
+  const w = starsCanvas.value.width
+  const h = starsCanvas.value.height
+
+  for (let i = 0; i < NUM_STARS; i++) {
+    const size = Math.random() * 1.5 + 0.5 // 0.5px to 2px
+    const baseSpeedY = Math.random() * 0.3 + 0.1 // Drift upward
+    
+    stars.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      size,
+      baseSpeedY,
+      speedY: baseSpeedY,
+      vx: 0,
+      vy: 0,
+      opacity: Math.random() * 0.5 + 0.2
+    })
+  }
+}
+
+const updateAndDrawStars = () => {
+  if (!starsCanvas.value || !ctx) return
+  const w = starsCanvas.value.width
+  const h = starsCanvas.value.height
+
+  ctx.clearRect(0, 0, w, h)
+
+  for (let i = 0; i < stars.length; i++) {
+    const star = stars[i]
+    if (!star) continue
+
+    // Calculate distance to mouse
+    const dx = mouse.x - star.x
+    const dy = mouse.y - star.y
+    const distance = Math.sqrt(dx * dx + dy * dy)
+
+    // Repulsion logic
+    if (distance < REPULSE_RADIUS) {
+      // Force inversely proportional to distance
+      const forceLocation = (REPULSE_RADIUS - distance) / REPULSE_RADIUS
+      const angle = Math.atan2(dy, dx)
+      
+      // Push away from mouse (-cos/sin)
+      star.vx -= Math.cos(angle) * forceLocation * REPULSE_FORCE
+      star.vy -= Math.sin(angle) * forceLocation * REPULSE_FORCE
+    }
+
+    // Apply friction to scattering
+    star.vx *= 0.92
+    star.vy *= 0.92
+
+    // Move star
+    star.x += star.vx
+    star.y += star.vy - star.baseSpeedY // base vertical upward drift
+
+    // Wrap around screen edges
+    if (star.y < -10) {
+      star.y = h + 10
+      star.x = Math.random() * w
+      star.vx = 0
+      star.vy = 0
+    }
+    if (star.x < -10) star.x = w + 10
+    if (star.x > w + 10) star.x = -10
+    if (star.y > h + 10) star.y = -10
+
+    // Draw
+    ctx.beginPath()
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2)
+    ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
+    ctx.shadowBlur = star.size * 2
+    ctx.shadowColor = 'rgba(255, 255, 255, 0.4)'
+    ctx.fill()
+  }
+
+  animationFrameId = requestAnimationFrame(updateAndDrawStars)
+}
+// --- End Canvas Interactive Stars ---
 
 // Generate random styles for shooting stars
 const getShootingStarStyle = (i: number) => {
@@ -65,6 +171,28 @@ const getShootingStarStyle = (i: number) => {
     animationDelay: `${delay}s`,
   };
 }
+
+onMounted(() => {
+  // Setup interactive stars
+  if (starsCanvas.value) {
+    ctx = starsCanvas.value.getContext('2d')
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseleave', handleMouseLeave)
+    
+    initStars()
+    updateAndDrawStars()
+  }
+})
+
+onUnmounted(() => {
+  // Cleanup
+  window.removeEventListener('resize', resizeCanvas)
+  window.removeEventListener('mousemove', handleMouseMove)
+  window.removeEventListener('mouseleave', handleMouseLeave)
+  cancelAnimationFrame(animationFrameId)
+})
 </script>
 
 <style scoped>
@@ -117,23 +245,6 @@ const getShootingStarStyle = (i: number) => {
 .animate-aurora-1 { animation: aurora-1 25s ease-in-out infinite alternate; }
 .animate-aurora-2 { animation: aurora-2 30s ease-in-out infinite alternate-reverse; }
 .animate-aurora-3 { animation: aurora-3 35s ease-in-out infinite alternate; }
-
-/* Floating Stars */
-.star {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 2px rgba(255,255,255,0.3);
-  opacity: 0;
-  animation: float-star linear infinite;
-}
-
-@keyframes float-star {
-  0% { transform: translateY(0) scale(0); opacity: 0; }
-  10% { transform: translateY(-5vh) scale(1); opacity: 0.8; }
-  90% { transform: translateY(-35vh) scale(1); opacity: 0.8; }
-  100% { transform: translateY(-40vh) scale(0); opacity: 0; }
-}
 
 /* Shooting Stars */
 .shooting-star {

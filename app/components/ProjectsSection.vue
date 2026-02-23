@@ -24,7 +24,7 @@
           class="md:col-span-2"
           title="Dreamscape"
           tag="Öne Çıkan · AI Uygulaması"
-          description="Rüyalarınızdaki örüntüleri analiz ederek bilinçaltınıza dair içgörüler sunan AI destekli rüya günlüğü. Duygu tespiti ve tekrarlanan temaların çıkarımı için NLP modelleri kullanır."
+          description="Uykudan uyandığınız an rüyalarınızın gizemini aydınlatan ve bilinçaltınızın haritasını çıkaran vizyoner bir mobil günlüktür. Uygulama, sadece rüyalarınızı kaydetmekle kalmaz; onları derinlemesine analiz ederek anlamlandırır ve yapay zeka ile sanat eserlerine dönüştürür. Dijital mistisizm temasıyla tasarlanan bu güvenli platform, rüyalarınızı birer kişisel içgörü yolculuğuna dönüştürerek her sabah kendinizi yeniden keşfetmenizi sağlar."
           icon='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3c-4.97 0-9 3.582-9 8 0 2.56 1.28 4.836 3.3 6.34L6 21l4.36-1.745A10.02 10.02 0 0012 19c4.97 0 9-3.582 9-8s-4.03-8-9-8z"/></svg>'
           size="large"
           accent-color="#a855f7"

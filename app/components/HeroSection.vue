@@ -50,7 +50,9 @@
               <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
             <a
-              href="mailto:email@adresin.com"
+              href="https://linkedin.com/in/yemrecc"
+              target="_blank"
+              rel="noopener noreferrer"
               class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-zinc-900/50 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-zinc-300 hover:text-white backdrop-blur-sm"
             >
               İletişime Geç
@@ -87,7 +89,7 @@
           <div
             v-for="edu in education"
             :key="edu.school"
-            class="border-gradient glass-strong rounded-lg px-3 py-2.5 border border-white/8 hover:border-white/15 transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/5 flex items-center gap-2.5"
+            class="border-gradient glass-strong rounded-lg px-2 py-1.5 border border-white/8 hover:border-white/15 transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/5 flex items-center gap-2.5"
           >
             <div
               class="rounded-md flex items-center justify-center flex-shrink-0 overflow-hidden"
