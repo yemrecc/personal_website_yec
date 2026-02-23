@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="py-32 px-6 relative">
+  <section id="projects" class="py-24 lg:py-32 px-4 sm:px-6 relative">
     <!-- Sophisticated section glow -->
     <div class="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.03] blur-[120px] pointer-events-none"
       style="background: radial-gradient(circle, #38bdf8, transparent 70%)"
@@ -10,14 +10,14 @@
       <!-- Section label -->
       <div class="flex items-center gap-3 mb-4">
         <span class="w-12 h-px shimmer-line rounded-full" />
-        <span class="text-purple-400 text-xs font-mono font-bold tracking-[0.2em] uppercase">Masterpiece</span>
+        <span class="text-purple-400 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] uppercase">Masterpiece</span>
       </div>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-16 leading-tight drop-shadow-xl">
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-10 lg:mb-16 leading-tight drop-shadow-xl">
         Project <span class="text-gradient drop-shadow-[0_0_12px_rgba(168,85,247,0.3)]">Vitrine</span>
       </h2>
 
       <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 auto-rows-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 auto-rows-auto">
 
         <!-- LARGE: Dreamscape (full width) -->
         <BentoCard

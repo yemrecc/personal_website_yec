@@ -1,32 +1,32 @@
 <template>
-  <footer class="py-16 px-6 border-t border-white/5 relative">
+  <footer class="py-12 lg:py-16 px-4 sm:px-6 border-t border-white/5 relative">
     <!-- Subtle glow -->
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full opacity-[0.03] blur-3xl pointer-events-none"
       style="background: radial-gradient(circle, #38bdf8, transparent 70%)"
     />
 
     <div class="max-w-6xl mx-auto relative">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-8">
 
         <!-- Left: Name + tagline -->
-        <div class="text-center md:text-left">
-          <p class="font-display text-lg font-bold text-white mb-1">
+        <div class="text-center md:text-left flex flex-col items-center md:items-start">
+          <p class="font-display text-base sm:text-lg font-bold text-white mb-1">
             Yunus Emre <span class="text-gradient">Coşkun</span>
           </p>
-          <p class="text-zinc-600 text-sm">Computer Engineer · Web3 & AI Builder</p>
+          <p class="text-zinc-600 text-[10px] sm:text-xs lg:text-sm">Computer Engineer · Web3 & AI Builder</p>
         </div>
 
         <!-- Center: Status -->
-        <div class="flex items-center gap-2 text-xs text-zinc-500">
-          <span class="relative w-2 h-2">
+        <div class="flex items-center gap-2 text-[10px] sm:text-xs text-zinc-500">
+          <span class="relative w-1.5 h-1.5 sm:w-2 sm:h-2">
             <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-60" />
-            <span class="relative block w-2 h-2 rounded-full bg-emerald-500" />
+            <span class="relative block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500" />
           </span>
           Available for collaboration · {{ currentYear }}
         </div>
 
         <!-- Right: Social links -->
-        <div class="flex items-center gap-5">
+        <div class="flex items-center justify-center gap-4 sm:gap-5">
           <a
             v-for="link in socials"
             :key="link.label"
@@ -36,7 +36,7 @@
             rel="noopener noreferrer"
             class="text-zinc-600 hover:text-zinc-200 hover:scale-110 transition-all duration-200"
           >
-            <span class="w-5 h-5 block" v-html="link.icon" />
+            <span class="w-4 h-4 sm:w-5 sm:h-5 block" v-html="link.icon" />
           </a>
         </div>
 

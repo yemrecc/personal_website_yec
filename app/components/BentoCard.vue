@@ -17,7 +17,7 @@
     />
 
     <!-- Content -->
-    <div class="relative z-10 h-full flex flex-col p-6" :class="size === 'large' ? 'p-8' : 'p-6'">
+    <div class="relative z-10 h-full flex flex-col p-4 sm:p-5 md:p-6" :class="size === 'large' ? 'lg:p-8' : ''">
       <!-- Tag -->
       <div class="flex items-center justify-between mb-4">
         <span
@@ -93,9 +93,9 @@ const spotlightStyle = computed(() => ({
 
 const sizeClass = computed(() => {
   switch (props.size) {
-    case 'large': return 'col-span-2 row-span-2 min-h-[340px]'
-    case 'medium': return 'col-span-1 row-span-2 min-h-[280px]'
-    default: return 'col-span-1 row-span-1 min-h-[180px]'
+    case 'large': return 'md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-[340px]'
+    case 'medium': return 'md:col-span-1 md:row-span-2 min-h-[240px] md:min-h-[280px]'
+    default: return 'col-span-1 row-span-1 min-h-[160px] md:min-h-[180px]'
   }
 })
 </script>

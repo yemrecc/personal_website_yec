@@ -1,7 +1,7 @@
 <template>
   <section
     id="hero"
-    class="relative min-h-screen flex flex-col justify-between pt-24 pb-8 px-6 overflow-hidden"
+    class="relative min-h-screen flex flex-col justify-between pt-20 lg:pt-24 pb-8 px-4 sm:px-6 overflow-hidden"
   >
     <!-- Smoother, deep hero glow accent behind content -->
     <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.06] blur-[100px] pointer-events-none transition-opacity duration-1000"
@@ -11,12 +11,12 @@
     <div class="max-w-6xl mx-auto w-full flex-1 flex flex-col">
 
       <!-- TOP ROW: Identity + Terminal -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center flex-1">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center flex-1 mt-4 lg:mt-0">
 
         <!-- LEFT: Identity -->
-        <div ref="leftCol" class="space-y-7 relative z-10">
+        <div ref="leftCol" class="space-y-6 lg:space-y-7 relative z-10">
           <!-- Premium Status badge -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/5 text-xs font-semibold text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.05)] backdrop-blur-md">
+          <div class="inline-flex items-center gap-2.5 px-3 lg:px-4 py-1.5 lg:py-2 rounded-full bg-emerald-500/5 text-[10px] sm:text-xs font-semibold text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.05)] backdrop-blur-md">
             <span class="relative flex h-2 w-2 items-center justify-center">
               <span class="animate-glow-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80"></span>
               <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400 shadow-[0_0_5px_#34d399]"></span>
@@ -26,25 +26,26 @@
 
           <!-- Name -->
           <div>
-            <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-none mb-4 drop-shadow-2xl">
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-none mb-3 lg:mb-4 drop-shadow-2xl">
               <span class="block text-white text-glow">Yunus Emre</span>
-              <span class="block text-gradient pb-4 -mb-4">Coşkun</span>
+              <span class="block text-gradient pb-2 lg:pb-4 -mb-2 lg:-mb-4">Coşkun</span>
             </h1>
-            <p class="font-display text-lg lg:text-xl text-zinc-400 font-medium tracking-wide">
-              Computer Engineer
-              <span class="text-zinc-700 mx-2">|</span>
-              <span class="text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Web3</span> &amp; <span class="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]">AI</span> Builder
+            <p class="font-display text-base sm:text-lg lg:text-xl text-zinc-400 font-medium tracking-wide flex flex-wrap items-center gap-x-2">
+              <span>Computer Engineer</span>
+              <span class="text-zinc-700 hidden sm:inline">|</span>
+              <span class="text-zinc-700 sm:hidden w-full h-0"></span>
+              <span><span class="text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Web3</span> &amp; <span class="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]">AI</span> Builder</span>
             </p>
           </div>
 
           <!-- Sharper divider -->
-          <div class="w-24 h-px shimmer-line rounded-full opacity-70" />
+          <div class="w-16 lg:w-24 h-px shimmer-line rounded-full opacity-70" />
 
           <!-- Premium CTA buttons -->
-          <div class="flex flex-wrap items-center gap-4">
+          <div class="flex flex-row items-center gap-3 lg:gap-4">
             <a
               href="#projects"
-              class="group relative px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-sky-500 to-sky-400 text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] overflow-hidden"
+              class="group relative flex-1 sm:flex-none px-2 sm:px-6 lg:px-7 py-3 lg:py-3.5 rounded-xl font-semibold text-[11px] sm:text-sm bg-gradient-to-r from-sky-500 to-sky-400 text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] overflow-hidden text-center"
             >
               <span class="relative z-10 drop-shadow-sm">View Projects</span>
               <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -53,14 +54,14 @@
               href="https://linkedin.com/in/yemrecc"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-zinc-900/50 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-zinc-300 hover:text-white backdrop-blur-sm"
+              class="flex-1 sm:flex-none px-2 sm:px-6 lg:px-7 py-3 lg:py-3.5 rounded-xl font-semibold text-[11px] sm:text-sm bg-zinc-900/50 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-zinc-300 hover:text-white backdrop-blur-sm text-center"
             >
               Get In Touch
             </a>
           </div>
 
           <!-- Contact bar -->
-          <div class="flex flex-wrap items-center gap-2 pt-4 border-t border-white/5">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-4 border-t border-white/5">
             <a
               v-for="contact in contacts"
               :key="contact.label"
@@ -77,26 +78,25 @@
         </div>
 
         <!-- RIGHT: Terminal -->
-        <div ref="rightCol" class="flex justify-center lg:justify-end">
-          <TerminalWindow />
+        <div ref="rightCol" class="flex justify-center lg:justify-end mt-4 lg:mt-0 relative z-10">
+          <TerminalWindow class="w-full max-w-lg lg:max-w-none" />
         </div>
       </div>
 
       <!-- BOTTOM ROW: Education & Tech Stack -->
       <div ref="bottomRow" class="mt-8 lg:mt-6 space-y-5">
         <!-- Education cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 items-stretch">
           <div
             v-for="edu in education"
             :key="edu.school"
-            class="border-gradient glass-strong rounded-lg px-2 py-1.5 border border-white/8 hover:border-white/15 transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/5 flex items-center gap-2.5"
+            class="h-full border-gradient glass-strong rounded-lg px-3 py-2 border border-white/8 hover:border-white/15 transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md hover:shadow-sky-500/5 flex items-center gap-3"
           >
             <div
-              class="rounded-md flex items-center justify-center flex-shrink-0 overflow-hidden"
-              :class="edu.logoSize || 'w-9 h-9'"
+              class="rounded-md flex items-center justify-center flex-shrink-0 overflow-hidden w-10 h-10"
               :style="edu.logo ? '' : `background: ${edu.color}15; border: 1px solid ${edu.color}25`"
             >
-              <img v-if="edu.logo" :src="edu.logo" :alt="edu.school" class="w-full h-full object-contain" />
+              <img v-if="edu.logo" :src="edu.logo" :alt="edu.school" class="w-full h-full object-contain p-0.5" />
               <span v-else class="text-xs">{{ edu.icon }}</span>
             </div>
             <div class="min-w-0 flex-1">
