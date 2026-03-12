@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="py-24 lg:py-32 px-4 sm:px-6 relative">
+  <section id="projects" aria-label="Projects" class="py-24 lg:py-32 px-4 sm:px-6 relative">
     <!-- Sophisticated section glow -->
     <div class="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.03] blur-[120px] pointer-events-none"
       style="background: radial-gradient(circle, #38bdf8, transparent 70%)"
@@ -78,6 +78,7 @@
           size="medium"
           accent-color="#4ade80"
           link="Explore"
+          href="https://github.com/yemrecc"
         >
           <!-- Crisp Order Book / Terminal -->
           <div class="mt-6 flex-1 rounded-xl bg-[#09090b] border border-white/10 p-1 flex flex-col font-mono text-[10px] shadow-inner relative overflow-hidden group/term">
@@ -109,6 +110,7 @@
           size="medium"
           accent-color="#f472b6"
           link="Learn More"
+          href="https://github.com/yemrecc"
         >
           <!-- Sharp Isometric / Geometric Node Representation -->
           <div class="mt-6 flex-1 rounded-xl bg-zinc-950/50 border border-white/5 relative overflow-hidden group/net flex items-center justify-center p-4">

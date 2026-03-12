@@ -25,7 +25,27 @@ export default defineNuxtConfig({
           content:
             'Personal portfolio of Yunus Emre Coşkun — Computer Engineer specializing in Web3, AI, and algorithmic trading systems.',
         },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'Yunus Emre Coşkun — Computer Engineer | Web3 & AI Builder' },
+        {
+          property: 'og:description',
+          content: 'Personal portfolio of Yunus Emre Coşkun — Computer Engineer specializing in Web3, AI, and algorithmic trading systems.',
+        },
+        { property: 'og:image', content: '/og-image.png' },
+        { property: 'og:locale', content: 'en_US' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@yemrecc' },
+        { name: 'twitter:title', content: 'Yunus Emre Coşkun — Web3 & AI Builder' },
+        {
+          name: 'twitter:description',
+          content: 'Computer Engineer specializing in Web3, AI, and algorithmic trading systems.',
+        },
+        { name: 'twitter:image', content: '/og-image.png' },
+        { name: 'theme-color', content: '#030303' },
       ],
+      htmlAttrs: {
+        lang: 'en',
+      },
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },

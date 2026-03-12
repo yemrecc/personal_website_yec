@@ -1,6 +1,7 @@
 <template>
   <section
     id="hero"
+    aria-label="Hero introduction"
     class="relative min-h-screen flex flex-col justify-between pt-20 lg:pt-24 pb-8 px-4 sm:px-6 overflow-hidden"
   >
     <!-- Smoother, deep hero glow accent behind content -->
@@ -71,7 +72,7 @@
               rel="noopener noreferrer"
               class="group flex items-center gap-2 px-3 py-2 rounded-lg text-zinc-500 hover:text-white hover:bg-white/5 transition-all duration-200 text-xs"
             >
-              <span class="w-4 h-4 flex-shrink-0 group-hover:scale-110 transition-transform" v-html="contact.icon" />
+              <span class="w-4 h-4 flex-shrink-0 group-hover:scale-110 transition-transform" v-html="contact.icon" aria-hidden="true" />
               <span class="hidden sm:block">{{ contact.display }}</span>
             </a>
           </div>

@@ -105,6 +105,10 @@ const updateAndDrawStars = () => {
 
   ctx.clearRect(0, 0, w, h)
 
+  // Set shadow once outside the loop for better performance
+  ctx.shadowBlur = 3
+  ctx.shadowColor = 'rgba(255, 255, 255, 0.4)'
+
   for (let i = 0; i < stars.length; i++) {
     const star = stars[i]
     if (!star) continue
@@ -116,11 +120,8 @@ const updateAndDrawStars = () => {
 
     // Repulsion logic
     if (distance < REPULSE_RADIUS) {
-      // Force inversely proportional to distance
       const forceLocation = (REPULSE_RADIUS - distance) / REPULSE_RADIUS
       const angle = Math.atan2(dy, dx)
-      
-      // Push away from mouse (-cos/sin)
       star.vx -= Math.cos(angle) * forceLocation * REPULSE_FORCE
       star.vy -= Math.sin(angle) * forceLocation * REPULSE_FORCE
     }
@@ -131,7 +132,7 @@ const updateAndDrawStars = () => {
 
     // Move star
     star.x += star.vx
-    star.y += star.vy - star.baseSpeedY // base vertical upward drift
+    star.y += star.vy - star.baseSpeedY
 
     // Wrap around screen edges
     if (star.y < -10) {
@@ -148,10 +149,11 @@ const updateAndDrawStars = () => {
     ctx.beginPath()
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2)
     ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
-    ctx.shadowBlur = star.size * 2
-    ctx.shadowColor = 'rgba(255, 255, 255, 0.4)'
     ctx.fill()
   }
+
+  // Reset shadow after drawing
+  ctx.shadowBlur = 0
 
   animationFrameId = requestAnimationFrame(updateAndDrawStars)
 }

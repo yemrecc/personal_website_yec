@@ -49,7 +49,24 @@
       <slot />
 
       <!-- Footer link -->
-      <div v-if="link" class="mt-5 flex items-center gap-1.5 text-xs font-semibold group-hover:gap-3 transition-all duration-300" :style="`color: ${accentColor}`">
+      <a
+        v-if="link && href"
+        :href="href"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 flex items-center gap-1.5 text-xs font-semibold group-hover:gap-3 transition-all duration-300 hover:underline"
+        :style="`color: ${accentColor}`"
+      >
+        <span>{{ link }}</span>
+        <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <div
+        v-else-if="link"
+        class="mt-5 flex items-center gap-1.5 text-xs font-semibold group-hover:gap-3 transition-all duration-300"
+        :style="`color: ${accentColor}`"
+      >
         <span>{{ link }}</span>
         <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -71,6 +88,7 @@ const props = withDefaults(defineProps<{
   size?: 'large' | 'small' | 'medium'
   accentColor?: string
   link?: string
+  href?: string
 }>(), {
   icon: '✦',
   size: 'small',

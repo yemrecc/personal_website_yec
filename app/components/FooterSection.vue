@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-12 lg:py-16 px-4 sm:px-6 border-t border-white/5 relative">
+  <footer role="contentinfo" class="py-12 lg:py-16 px-4 sm:px-6 border-t border-white/5 relative">
     <!-- Subtle glow -->
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full opacity-[0.03] blur-3xl pointer-events-none"
       style="background: radial-gradient(circle, #38bdf8, transparent 70%)"
@@ -36,7 +36,7 @@
             rel="noopener noreferrer"
             class="text-zinc-600 hover:text-zinc-200 hover:scale-110 transition-all duration-200"
           >
-            <span class="w-4 h-4 sm:w-5 sm:h-5 block" v-html="link.icon" />
+            <span class="w-4 h-4 sm:w-5 sm:h-5 block" v-html="link.icon" aria-hidden="true" />
           </a>
         </div>
 

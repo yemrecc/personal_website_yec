@@ -1,75 +1,46 @@
-# Nuxt Minimal Starter
+# YEC - Personal Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, interactive portfolio website built with **Nuxt 4**, **Vue 3**, and **Tailwind CSS 4**.
+
+## Features
+
+- Interactive canvas particle system with mouse repulsion physics
+- Animated perspective grid and aurora background effects
+- Bento grid project showcase with spotlight hover effects
+- GSAP-powered entrance animations
+- Infinite marquee tech stack display
+- Fully responsive design (mobile-first)
+- SEO optimized with Open Graph and Twitter Card meta tags
+
+## Tech Stack
+
+- **Framework:** Nuxt 4 / Vue 3
+- **Styling:** Tailwind CSS 4
+- **Animations:** GSAP, CSS keyframes
+- **Interactions:** VueUse (mouse tracking, motion)
+- **Language:** TypeScript
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Development
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Open [http://localhost:3000](http://localhost:3000)
 
-Build the application for production:
+## Build
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## License
+
+[MIT](LICENSE)

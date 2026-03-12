@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git log:*)",
+      "Bash(git config:*)",
+      "Read(//d/y-e-c/**)",
+      "Bash(grep -v \"^$\")",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --env-filter ':*)"
+    ]
+  }
+}
