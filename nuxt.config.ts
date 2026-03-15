@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   // Nuxt 4: source files live in app/ by default
   future: { compatibilityVersion: 4 },
 
-  modules: ['@vueuse/motion/nuxt'],
+  modules: ['@vueuse/motion/nuxt', '@vercel/analytics/nuxt'],
 
   vite: {
     plugins: [tailwindcss() as any],
