@@ -30,41 +30,56 @@
           accent-color="#a855f7"
           link="Coming Soon"
         >
-          <!-- Premium, sharp architectural chart mockup -->
-          <div class="mt-6 flex-1 rounded-xl bg-zinc-950/80 border border-white/10 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-hidden relative group/chart flex flex-col">
-            <!-- Header -->
+          <!-- Dream Analysis Dashboard -->
+          <div class="mt-3 flex-1 rounded-xl bg-zinc-950/80 border border-white/10 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-hidden relative flex flex-col">
+            <!-- Tab Header -->
             <div class="flex items-center justify-between px-5 py-3 border-b border-white/5 bg-white/[0.02]">
-              <div class="flex items-center gap-3">
-                <span class="text-[10px] text-zinc-400 font-mono tracking-wider uppercase border border-white/10 px-2 py-0.5 rounded">Analysis Engine</span>
+              <div class="flex items-center gap-4">
+                <span class="text-[10px] sm:text-xs text-purple-400 font-medium border-b-2 border-purple-500 pb-1 cursor-default">Patterns</span>
+                <span class="text-[10px] sm:text-xs text-zinc-600 font-medium pb-1 cursor-default">Trends</span>
+                <span class="text-[10px] sm:text-xs text-zinc-600 font-medium pb-1 cursor-default">Insights</span>
               </div>
               <div class="flex items-center gap-2">
                 <div class="h-1.5 w-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]" />
-                <span class="text-[10px] font-mono text-purple-400">Processing v2.4</span>
+                <span class="text-[10px] font-mono text-purple-400">Dream Detective</span>
               </div>
             </div>
-            
-            <!-- Chart Body -->
-            <div class="flex-1 p-5 relative overflow-hidden flex flex-col justify-end">
-              <!-- Pixel-perfect grid -->
-              <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
-              
-              <div class="relative z-10 flex items-end justify-between gap-1 h-32">
-                <div v-for="(val, idx) in dreamBars" :key="idx" class="flex-1 flex flex-col justify-end group/bar relative h-full">
-                  <!-- Tooltip (mock) -->
-                  <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono text-white opacity-0 group-hover/bar:opacity-100 transition-opacity bg-zinc-800 px-1.5 py-0.5 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap">
-                     Vol: {{ val }}
+
+            <!-- Content -->
+            <div class="flex-1 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:gap-6 overflow-hidden">
+
+              <!-- Recurring Themes -->
+              <div class="flex-1 flex flex-col gap-2.5">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-[10px] text-zinc-400 font-mono tracking-wider uppercase">Recurring Themes</span>
+                </div>
+                <div v-for="(theme, i) in dreamThemes" :key="i" class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-white/10 transition-colors">
+                  <div class="w-7 h-7 rounded-md bg-amber-500/15 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767A2 2 0 0011 16h2l3 3v-3h1a2 2 0 002-2V9a2 2 0 00-2-2h-2z"/></svg>
                   </div>
-                  <!-- The Bar -->
-                  <div 
-                    class="w-full rounded-t-sm border-t border-purple-400/50 relative overflow-hidden transition-all duration-300 group-hover/bar:bg-purple-500"
-                    :style="{ height: `${val}%`, background: `linear-gradient(to bottom, #a855f7${Math.floor(val*2.5).toString(16).padStart(2,'0') + '000000'}, transparent)` }"
-                  >
-                     <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent mix-blend-overlay" />
+                  <div class="min-w-0">
+                    <span class="text-[11px] text-white/90 font-medium leading-tight block">{{ theme.title }}</span>
+                    <p class="text-[9px] text-zinc-500 mt-0.5 leading-relaxed line-clamp-2">{{ theme.desc }}</p>
                   </div>
-                  <!-- Label -->
-                  <span class="text-[9px] text-zinc-500 font-mono mt-2 text-center group-hover/bar:text-purple-300 transition-colors">{{ emotionLabels[idx] }}</span>
                 </div>
               </div>
+
+              <!-- Symbol Distribution -->
+              <div class="w-full sm:w-56 flex flex-col gap-2.5 sm:border-l sm:border-white/5 sm:pl-6">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-[10px] text-zinc-400 font-mono tracking-wider uppercase">Symbol Distribution</span>
+                </div>
+                <div v-for="(sym, i) in symbolDist" :key="i" class="space-y-1">
+                  <div class="flex justify-between">
+                    <span class="text-[10px] text-white/80">{{ sym.label }}</span>
+                    <span class="text-[10px] text-zinc-400 font-mono">{{ sym.pct }}%</span>
+                  </div>
+                  <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-700" :class="sym.color" :style="{ width: sym.pct + '%' }" />
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </BentoCard>
@@ -101,11 +116,61 @@
           </div>
         </BentoCard>
 
+        <!-- Monad AI Explorer -->
+        <BentoCard
+          title="Monad AI Explorer"
+          tag="Web3 · AI · Beta"
+          description="An AI-powered block explorer for the Monad blockchain. Query on-chain data in natural language, visualize parallel execution lanes in real-time, and track live TPS, gas prices, and network metrics — built for both humans and AI agents."
+          icon='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>'
+          size="medium"
+          accent-color="#836EF9"
+          link="Visit"
+          href="https://www.monadaiexplorer.com/"
+        >
+          <!-- Live Network Metrics -->
+          <div class="mt-3 flex-1 rounded-xl bg-[#09090b] border border-white/10 p-1 flex flex-col font-mono text-[10px] shadow-inner relative overflow-hidden group/exp">
+            <div class="px-3 py-2 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
+              <span class="text-zinc-500 tracking-wider">LIVE NETWORK</span>
+              <div class="flex items-center gap-1.5">
+                <div class="h-1.5 w-1.5 rounded-full bg-[#836EF9] shadow-[0_0_6px_#836EF9] animate-pulse" />
+                <span class="text-[#836EF9]">Monad</span>
+              </div>
+            </div>
+            <div class="px-3 py-2.5 space-y-2 relative z-10 flex-1 flex flex-col justify-end">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="bg-white/[0.03] rounded-md px-2.5 py-1.5 border border-white/5">
+                  <span class="text-zinc-600 text-[8px] block">TPS</span>
+                  <span class="text-white font-bold text-sm">2,847</span>
+                </div>
+                <div class="bg-white/[0.03] rounded-md px-2.5 py-1.5 border border-white/5">
+                  <span class="text-zinc-600 text-[8px] block">GAS</span>
+                  <span class="text-white font-bold text-sm">102 <span class="text-zinc-500 text-[8px] font-normal">gwei</span></span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 px-1 py-1 text-[9px]">
+                <span class="text-zinc-600">Block</span>
+                <span class="text-white">#4,218,093</span>
+                <span class="text-zinc-700 mx-1">|</span>
+                <span class="text-zinc-600">MON</span>
+                <span class="text-[#836EF9] font-bold">$1.24</span>
+              </div>
+              <!-- Parallel lanes hint -->
+              <div class="flex gap-0.5 mt-1">
+                <div class="h-1 flex-1 rounded-full bg-[#836EF9]/40" />
+                <div class="h-1 flex-[0.7] rounded-full bg-emerald-500/40" />
+                <div class="h-1 flex-[0.85] rounded-full bg-sky-500/40" />
+                <div class="h-1 flex-[0.5] rounded-full bg-amber-500/40" />
+              </div>
+              <span class="text-[8px] text-zinc-600 tracking-wider">PARALLEL EXECUTION LANES</span>
+            </div>
+          </div>
+        </BentoCard>
+
         <!-- Sepya Network -->
         <BentoCard
           title="Sepya Network"
           tag="Community · Web3"
-          description="Co-founder of a decentralized community platform focused on Web3 education and ecosystem adoption within the Turkish developer ecosystem."
+          description="Founder of a decentralized community platform focused on Web3 education and ecosystem adoption within the Turkish developer ecosystem."
           icon='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>'
           size="medium"
           accent-color="#f472b6"
@@ -141,6 +206,15 @@
 </template>
 
 <script setup lang="ts">
-const dreamBars = [50, 65, 30, 85, 45, 20, 75, 55]
-const emotionLabels = ['Joy', 'Trst', 'Fear', 'Surp', 'Sadd', 'Disg', 'Angr', 'Antc']
+const dreamThemes = [
+  { title: 'Identity & Individuation', desc: 'Redefining identity, shattering the old self and progressing toward an authentic being, inner growth and quest for wholeness...' },
+  { title: 'Inner Discovery & Transformation', desc: 'Diving into the depths of the subconscious, navigating inner labyrinths and seeking nurturing sources of wisdom...' },
+  { title: 'Overcoming Barriers & Liberation', desc: 'Breaking free from psychological stagnation, recurring patterns and fears, desire for spiritual purification and inner peace...' },
+]
+
+const symbolDist = [
+  { label: 'Identity Journey', pct: 38, color: 'bg-amber-500' },
+  { label: 'Inner Discovery', pct: 33, color: 'bg-purple-500' },
+  { label: 'Liberation', pct: 29, color: 'bg-sky-500' },
+]
 </script>

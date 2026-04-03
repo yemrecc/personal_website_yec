@@ -41,7 +41,7 @@
       >
         {{ title }}
       </h3>
-      <p class="text-zinc-500 text-sm leading-relaxed flex-1">
+      <p class="text-zinc-500 text-sm leading-relaxed">
         {{ description }}
       </p>
 
@@ -111,7 +111,7 @@ const spotlightStyle = computed(() => ({
 
 const sizeClass = computed(() => {
   switch (props.size) {
-    case 'large': return 'md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-[340px]'
+    case 'large': return 'md:col-span-2 md:row-span-2'
     case 'medium': return 'md:col-span-1 md:row-span-2 min-h-[240px] md:min-h-[280px]'
     default: return 'col-span-1 row-span-1 min-h-[160px] md:min-h-[180px]'
   }
